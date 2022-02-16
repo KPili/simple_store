@@ -8,3 +8,14 @@
 
 # Seed new data every time seed script is run.
 Product.delete_all
+# puts "Database has been emptied"
+
+676.times do
+  Product.create(
+    title:          Faker::Commerce.product_name,
+    price:          Faker::Commerce.price,
+    stock_quantity: Faker::Number.digit
+  )
+
+  # puts "Created #{Product.count} products"
+end
