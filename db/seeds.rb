@@ -8,9 +8,12 @@ require "csv"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Seed new data every time seed script is run.
+# Delete DB contents & Reset autoincrementing values to 0
 Product.destroy_all
 Category.destroy_all
+
+Product.connection.execute("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME= 'products'")
+Category.connection.execute("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME= 'categories'")
 
 csv_file = Rails.root.join("db/products.csv") # Build out the absolute path for the file name
 csv_data = File.read(csv_file) # Return the output of the file via File.read method
