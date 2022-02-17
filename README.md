@@ -6,7 +6,7 @@
 
 ### Part 2
 
-- Part 2
+- Part 2 - Start
 
   1. Generate a new model called Category with a single string property called "name".
   2. To avoid foreign key issues you will first need to delete all the data in your products table. Jump into a rails console from the command line using "rails c" and then run "Product.destroy_all".
@@ -17,3 +17,5 @@
   7. Rewrite your db/seeds.rb file such that it now pulls in product and category data from your products.csv file. See appendix below for some assistance on how to pull data from a CSV file using csv library.
   8. Update your product index and show views such that all products are display with the name of their associated category.
   9. Be sure to avoid a N+1 issue by loading your categories along side your products in the products controller's index action: @products = Product.includes(:category).all
+
+* Part 2 - Loading Data From a CSV complete.
